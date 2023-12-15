@@ -1,0 +1,17 @@
+data_path: /config/zigbee2mqtt
+socat:
+  enabled: false
+  master: pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777
+  slave: tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5
+  options: "-d -d"
+  log: false
+mqtt:
+  server: mqtt://core-mosquitto:1883
+  user: mqtt-user
+  password: mqtt-user
+serial:
+  port: >-
+    /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20220812171903-if00
+  adapter: ezsp
+zigbee_herdsman_debug: false
+homeassistant: true
